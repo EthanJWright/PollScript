@@ -25,7 +25,8 @@ CLINTAVG=$(wc -l < $(dirname "$0")/clintonlc.txt) #Get total number of polls for
 
 CLINTNEW=$((CLINTON/CLINTAVG))   #Average Clinton's spread
 
-if [[ $CLINTNEW > $TRUMPNEW ]]   #Set up conditional based on who is ahead
+if [[ "$CLINTNEW" -gt "$TRUMPNEW" ]]   #Set up conditional based on who is ahead
+
 then                             #if Clinton is ahead
   DIFF=$((CLINTNEW-TRUMPNEW))
   printf '%s%d]\n' "The current spread benefits Clinton [+" "$DIFF"
@@ -37,9 +38,9 @@ fi
 CLINTONCOUNT=$(wc -l < $(dirname "$0")/clintonlc.txt)  #Establish data for who has won more polls
 TRUMPCOUNT=$(wc -l < $(dirname "$0")/trumplc.txt)
 TOTALCOUNT=$((CLINTONCOUNT+TRUMPCOUNT))
-
-if [[ $CLINTONCOUNT > $TRUMPCOUNT ]]    #conditional for who has won more polls
+if [[ "$CLINTONCOUNT" -gt "$TRUMPCOUNT" ]]    #conditional for who has won more polls
 then
+
   DIFF=$((CLINTONCOUNT-TRUMPCOUNT))
 
   printf '%s%d%s%d%s\n' "and Clinton is ahead in " "$DIFF" " more polls than Trump, out of " "$TOTALCOUNT" " total polls."
