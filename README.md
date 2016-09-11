@@ -1,4 +1,9 @@
 # PollScript
+If not working run:
+sudo apt-get install html2text
+on linux or
+brew install html2text
+for mac
 addedPolls.sh outputs the average current spread from all available polls, as well as the number of polls the current leader is ahead by. All data is pulled from the Real Clear Politics poll feed.
 The output of this will read: 
 "The current spread benefits Clinton [+1]
